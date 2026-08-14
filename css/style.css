@@ -1,0 +1,273 @@
+:root{
+  --bg:#f8faf9;
+  --surface:#ffffff;
+  --text:#2e3739;
+  --muted:#667274;
+  --teal:#5e959b;
+  --teal-deep:#326a72;
+  --gold:#d5a14d;
+  --gold-deep:#a66e1f;
+  --border:rgba(46,55,57,.13);
+  --shadow:0 8px 24px rgba(0,0,0,.06);
+  --radius:16px;
+  --maxw:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;line-height:1.65;background:var(--bg);color:var(--text)}
+a{color:var(--teal-deep);text-underline-offset:3px}
+img{max-width:100%;height:auto}
+.skip-link{position:absolute;left:12px;top:-48px;background:#000;color:#fff;padding:10px 12px;border-radius:10px;z-index:9999}
+.skip-link:focus{top:12px}
+:focus-visible{outline:3px solid rgba(50,106,114,.55);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Header copied from the established site structure, recoloured for Kaximadi */
+.header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:2px solid rgba(94,149,155,.42)}
+.header-inner{max-width:var(--maxw);margin:auto;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:10}
+.brand{appearance:none}
+.brand-logo{height:44px;width:auto;display:block}
+.espa-trigger{pointer-events:auto;cursor:pointer;background:none;border:none;padding:0}
+.nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+.nav a{text-decoration:none;font-weight:600;color:var(--text);padding:10px;border-radius:12px}
+.nav a:hover,.nav a:focus{background:rgba(94,149,155,.14);color:var(--teal-deep)}
+.nav a.active{background:rgba(213,161,77,.18)}
+.hamburger{display:none;background:none;border:1px solid var(--border);border-radius:12px;padding:10px 12px;font-size:20px;cursor:pointer}
+
+/* ESPA modal */
+.modal-overlay{position:fixed;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.55);z-index:3000;padding:16px}
+.modal-overlay[hidden]{display:none}
+.modal{width:min(720px,100%);background:#fff;border-radius:16px;padding:20px;max-height:85vh;overflow:auto;box-shadow:0 10px 28px rgba(0,0,0,.18);position:relative}
+.modal h2{color:var(--teal-deep);margin-top:0}
+.modal-close{position:absolute;top:10px;right:12px;border:0;background:transparent;font-size:28px;line-height:1;cursor:pointer}
+
+/* Home */
+.hero{max-width:var(--maxw);margin:26px auto 0;padding:22px 16px 30px;display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center}
+.hero-text{background:rgba(94,149,155,.09);border:1px solid rgba(94,149,155,.23);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);text-align:center}
+.hero-kicker{color:var(--gold-deep);font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.hero-title{margin:0 0 14px}
+.hero-title-text{font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-size:clamp(24px,2.7vw,31px);font-weight:600;line-height:1.16;color:var(--teal-deep);position:relative;display:inline-block;white-space:nowrap}
+.hero-title-text::after{content:"";position:absolute;left:8%;right:8%;bottom:-10px;height:3px;border-radius:999px;background:linear-gradient(90deg,rgba(94,149,155,.78),rgba(213,161,77,.72))}
+.title-small{font-size:.56em;white-space:nowrap}
+.hero-subtitle{margin:25px 0 12px;font-weight:700;font-size:1.12rem}
+.hero-intro{margin:0;color:var(--muted);font-size:1.04rem}
+.hero-image{display:flex;justify-content:center}
+.hero-image img{width:100%;max-width:470px;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.10);display:block}
+.brand-mark{width:92px;margin:0 auto 18px;display:block}
+.catchy-phrase{display:flex;justify-content:center;margin:18px 16px 34px}
+.catchy-phrase p{max-width:760px;margin:0;padding:18px 22px;text-align:center;border-radius:var(--radius);background:linear-gradient(135deg,rgba(213,161,77,.20),rgba(94,149,155,.13));box-shadow:0 10px 22px rgba(0,0,0,.05);font-family:"Playfair Display",Georgia,serif;font-size:1.16rem}
+
+/* Generic pages */
+.page{max-width:var(--maxw);margin:24px auto 34px;padding:0 16px}
+.page-header{text-align:center;margin-bottom:22px}
+.page-header h1{font-family:"Playfair Display",Georgia,serif;color:var(--teal-deep);font-size:clamp(2rem,4vw,3rem);margin-bottom:8px}
+.page-header p{color:var(--muted)}
+.content-card,.clinic-text,.service-card,.contact-panel{background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.timeline{border-left:3px solid rgba(94,149,155,.25);padding-left:22px}
+.timeline-item{position:relative;margin-bottom:22px}
+.timeline-item:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--gold);left:-29px;top:8px}
+.timeline-item h2,.timeline-item h3{color:var(--teal-deep);margin-bottom:4px}
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.service-card h2{font-size:1.16rem;color:var(--teal-deep);margin-top:0}
+.contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.contact-panel h2{color:var(--teal-deep);margin-top:0}
+.map-embed{overflow:hidden;border-radius:var(--radius);border:1px solid var(--border);background:#fff;min-height:430px}
+.map-embed iframe{width:100%;height:430px;border:0;display:block}
+.text-link-button{display:inline-block;margin-top:8px;font-weight:700}
+
+/* Footer – three-column layout from V1 */
+.container{width:min(var(--maxw),calc(100% - 2rem));margin-inline:auto}
+.site-footer{background:#243f44;color:#e8f2f2;margin-top:3rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;padding:3rem 0}
+.site-footer a{color:#fff}
+.site-footer h2,.site-footer h3{font-family:"Playfair Display",Georgia,serif;color:#fff;margin-top:0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.15);padding:1rem 0;font-size:.9rem;color:#cdd9da;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.footer-bottom-links .cookie-settings-link{font:inherit;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:5px 9px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.footer-legal button{background:transparent;border:1px solid rgba(46,55,57,.25);border-radius:12px;padding:6px 10px;cursor:pointer}
+
+/* Cookie UI, same accessibility approach as original */
+.cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;z-index:2500;background:rgba(255,255,255,.98);border:1px solid var(--border);border-radius:16px;box-shadow:0 14px 30px rgba(0,0,0,.14);padding:14px}
+.cookie-banner p{margin:0 0 10px}
+.cookie-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cookie-btn{border:1px solid var(--border);background:#fff;border-radius:12px;padding:10px 12px;cursor:pointer;font-weight:700}
+.cookie-btn.primary{background:rgba(94,149,155,.18)}
+.cookie-modal[hidden]{display:none}
+.cookie-modal{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:2600;display:flex;align-items:center;justify-content:center;padding:14px}
+.cookie-modal-card{width:min(640px,96vw);background:#fff;border-radius:18px;border:1px solid var(--border);box-shadow:0 16px 40px rgba(0,0,0,.22);padding:16px}
+.cookie-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--border)}
+.cookie-small{color:var(--muted);margin:8px 0 0}
+.cookie-toggle{display:flex;align-items:center;gap:8px}
+
+@media(max-width:860px){
+  .hamburger{display:block}
+  .nav{display:none;position:absolute;top:calc(100% + 10px);left:16px;right:16px;background:rgba(255,255,255,.99);border:1px solid var(--border);border-radius:16px;box-shadow:0 14px 30px rgba(0,0,0,.14);padding:10px;z-index:1200}
+  .nav.active{display:block}
+  .nav ul{flex-direction:column;align-items:flex-start;gap:10px}
+  .brand-logo{max-width:180px;width:100%;height:auto}
+  .header-inner{gap:10px}
+  .hero{grid-template-columns:1fr;padding-top:16px}
+  .hero-image{order:-1}
+  .hero-image img{max-width:560px}
+  .services-grid,.contact-layout,.footer-grid{grid-template-columns:1fr}
+  .hero-title-text{white-space:normal}
+}
+@media(max-width:520px){
+  .hero-text{padding:21px 16px}
+  .hero-title-text{font-size:29px}
+  .map-embed,.map-embed iframe{min-height:350px;height:350px}
+  .cookie-row{flex-direction:column;align-items:flex-start}
+}
+
+/* ===============================
+   V5 – BIOGRAPHY PAGE
+================================ */
+.bio-page-content{max-width:1200px;}
+.bio-layout-kaximadi{
+  display:grid;
+  grid-template-columns:minmax(280px,.72fr) minmax(0,1.35fr);
+  gap:34px;
+  align-items:start;
+}
+.bio-layout-kaximadi .bio-photo{position:sticky;top:88px;}
+.bio-layout-kaximadi .bio-photo img{
+  width:100%;
+  max-width:430px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.bio-layout-kaximadi .bio-text{
+  font-size:16.5px;
+  line-height:1.78;
+}
+.bio-layout-kaximadi .bio-text p{margin:0 0 18px;}
+.bio-qualifications{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:30px;
+}
+.bio-card{
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+.bio-card h2{
+  margin:0 0 12px;
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:21px;
+  color:var(--teal-deep);
+}
+.bio-card p{margin:0 0 12px;line-height:1.65;}
+.bio-card p:last-child{margin-bottom:0;}
+
+/* V5 – compact three-column footer */
+.site-footer{margin-top:2rem;}
+.footer-grid{gap:1.5rem;padding:1.45rem 0 1.15rem;}
+.site-footer h2,.site-footer h3{margin-bottom:.35rem;line-height:1.2;}
+.site-footer h2{font-size:1.16rem;}
+.site-footer h3{font-size:1rem;}
+.site-footer p{margin:.25rem 0;line-height:1.45;}
+.footer-bottom{padding:.65rem 0;}
+
+@media (max-width:860px){
+  .bio-layout-kaximadi{grid-template-columns:1fr;gap:22px;}
+  .bio-layout-kaximadi .bio-photo{position:static;}
+  .bio-layout-kaximadi .bio-photo img{max-width:520px;}
+  .bio-qualifications{grid-template-columns:1fr;}
+  .footer-grid{gap:.85rem;padding:1.2rem 16px 1rem;}
+}
+
+/* V6 – Services page grouped categories */
+.services-intro{background:rgba(255,255,255,.95);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-top:14px;line-height:1.75}
+.service-list{margin:10px 0 0;padding-left:20px}
+.service-list li{margin-bottom:9px;color:var(--muted)}
+.services-note{text-align:center;margin-top:18px;color:var(--muted)}
+.services-note a{color:var(--text);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* V8 – Clinic page */
+.clinic-page-kaximadi{max-width:1160px}
+.clinic-intro{max-width:900px;margin:0 auto 26px;text-align:center;color:var(--muted);font-size:1.03rem;line-height:1.78}
+.clinic-intro p{margin:0 0 12px}
+.clinic-feature{margin:0 0 18px}
+.clinic-photo{display:block;width:100%;padding:0;border:0;background:transparent;border-radius:18px;overflow:hidden;cursor:zoom-in;box-shadow:var(--shadow)}
+.clinic-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .25s ease}
+.clinic-photo:hover img{transform:scale(1.012)}
+.clinic-photo:focus-visible{outline:3px solid rgba(50,106,114,.55);outline-offset:4px}
+.clinic-photo-main{height:min(58vw,610px)}
+.clinic-gallery-curated{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:42px}
+.clinic-gallery-curated .clinic-photo{height:360px}
+.clinic-gallery-curated .clinic-photo-wide{grid-column:1/-1;height:520px}
+.clinic-clinical{margin-top:10px}
+.clinic-section-copy{max-width:820px;margin:0 auto 22px;text-align:center}
+.clinic-section-copy h2{font-family:"Playfair Display",Georgia,serif;color:var(--teal-deep);font-size:clamp(1.55rem,3vw,2.15rem);margin:0 0 10px}
+.clinic-section-copy p{margin:0;color:var(--muted);line-height:1.75}
+.clinic-clinical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.clinic-clinical-grid .clinic-photo{height:390px}
+.image-lightbox[hidden]{display:none}
+.image-lightbox{position:fixed;inset:0;z-index:4000;background:rgba(15,20,21,.91);display:flex;align-items:center;justify-content:center;padding:44px 22px 22px}
+.image-lightbox img{max-width:min(1200px,94vw);max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:10px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.lightbox-close{position:fixed;right:22px;top:14px;width:44px;height:44px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(0,0,0,.25);color:#fff;font-size:30px;line-height:1;cursor:pointer}
+@media(max-width:760px){.clinic-photo-main{height:62vw;min-height:280px}.clinic-gallery-curated,.clinic-clinical-grid{grid-template-columns:1fr}.clinic-gallery-curated .clinic-photo,.clinic-gallery-curated .clinic-photo-wide,.clinic-clinical-grid .clinic-photo{grid-column:auto;height:auto;aspect-ratio:4/3}.clinic-intro{text-align:left}.clinic-gallery-curated{margin-bottom:32px}}
+@media(prefers-reduced-motion:reduce){.clinic-photo img{transition:none}}
+
+
+/* Continuous clinic lightbox navigation */
+.lightbox-prev,.lightbox-next{position:fixed;top:50%;transform:translateY(-50%);z-index:4001;width:52px;height:52px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(0,0,0,.28);color:#fff;font-size:38px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lightbox-prev{left:22px}.lightbox-next{right:22px}
+.lightbox-prev:hover,.lightbox-next:hover,.lightbox-prev:focus-visible,.lightbox-next:focus-visible,.lightbox-close:focus-visible{background:rgba(255,255,255,.18);outline:2px solid #fff;outline-offset:3px}
+.lightbox-counter{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);color:#fff;background:rgba(0,0,0,.38);padding:5px 12px;border-radius:999px;font-size:.9rem;letter-spacing:.04em}
+@media(max-width:640px){.lightbox-prev,.lightbox-next{width:44px;height:44px;font-size:32px}.lightbox-prev{left:8px}.lightbox-next{right:8px}.image-lightbox{padding-left:12px;padding-right:12px}.image-lightbox img{max-width:92vw;max-height:82vh}}
+
+/* V10 – Contact page */
+.contact-layout-three{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.contact-item{margin-bottom:18px}
+.contact-item:last-child{margin-bottom:0}
+.contact-item h3{margin:0 0 6px;font-size:1rem;color:var(--text)}
+.contact-item p{margin:0 0 10px;line-height:1.65}
+.contact-panel a{color:var(--teal-deep);text-underline-offset:3px}
+.contact-landmark{color:var(--text);font-size:.95rem;font-weight:600}
+.hours-box{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(66,127,136,.08)}
+.hours-main{margin:0 0 16px}
+.hours-foot{margin:0;color:var(--muted)}
+.map-link{font-weight:600}
+.map-fallback{margin:10px 0 0;color:var(--muted);font-size:.94rem}
+.contact-layout-three .map-embed{min-height:360px}
+.contact-layout-three .map-embed iframe{height:360px}
+@media(max-width:980px){.contact-layout-three{grid-template-columns:1fr}.contact-layout-three .map-embed,.contact-layout-three .map-embed iframe{min-height:350px;height:350px}}
+
+
+/* V12 – Services/contact refinements */
+.services-intro{text-align:center;}
+.services-grid{margin-top:19px;}
+.contact-landmark{color:#566164;font-size:.95rem;font-weight:400;}
+.email-text{color:var(--text);font-weight:400;overflow-wrap:anywhere;}
+.social-list{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:10px;}
+.social-link{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:14px;text-decoration:none;color:var(--text)!important;background:rgba(255,255,255,.92);font-weight:600;}
+.social-link:hover,.social-link:focus{background:rgba(94,149,155,.14);color:var(--teal-deep)!important;}
+.social-icon{width:34px;height:34px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(50,106,114,.28);background:rgba(94,149,155,.12);color:var(--teal-deep);flex:0 0 auto;}
+.social-icon svg{width:18px;height:18px;fill:currentColor;display:block;}
+.social-link:focus-visible{outline:3px solid rgba(50,106,114,.55);outline-offset:2px;}
+
+
+/* V13 – Legal pages and footer legal navigation */
+.legal-card{background:rgba(255,255,255,.96);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-top:14px;line-height:1.75}
+.legal-card h2{margin:22px 0 8px;font-size:1.15rem;color:var(--teal-deep)}
+.legal-card h2:first-of-type{margin-top:12px}
+.legal-card a{color:var(--teal-deep);font-weight:600;text-underline-offset:3px}
+.legal-muted{color:#566164;margin-top:0}
+.footer-bottom-links{display:inline-flex;flex-wrap:wrap;gap:8px;align-items:center}
+.footer-bottom-links a,.footer-bottom-links .cookie-settings-link{font:inherit;color:#fff;background:transparent;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.footer-bottom-links .cookie-settings-link{border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:5px 8px}
+.footer-bottom-links a:hover,.footer-bottom-links a:focus,.footer-bottom-links .cookie-settings-link:hover,.footer-bottom-links .cookie-settings-link:focus{text-decoration-thickness:2px;background:rgba(255,255,255,.08)}
+.footer-bottom-links a:focus-visible,.footer-bottom-links .cookie-settings-link:focus-visible{outline:3px solid rgba(255,255,255,.85);outline-offset:2px}
+
+/* V15 – accessibility/performance hardening (no visual redesign) */
+:focus-visible{outline:3px solid #326a72;outline-offset:3px}
+.header a:focus-visible,.hamburger:focus-visible,.espa-trigger:focus-visible,.modal-close:focus-visible,.cookie-btn:focus-visible{outline:3px solid #326a72;outline-offset:3px}
+.contact-landmark{color:#566164;font-weight:400}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
